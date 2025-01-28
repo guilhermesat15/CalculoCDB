@@ -1,0 +1,58 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34525.116
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Backend", "Backend", "{490D53CC-596B-4E55-AF6B-FBF8DD9F8371}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "scr", "scr", "{9FA1099E-05EB-42AB-939A-5DE1445C6899}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CalculoCDB.API", "CalculoCDB.API\CalculoCDB.API.csproj", "{7CD52AE8-7E5B-46E0-B740-F698B9DD42C5}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CalculoCDB.Test", "CalculoCDB.Test\CalculoCDB.Test.csproj", "{4BD57E10-E08E-4871-94D4-84E15531C641}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CalculoCDB.Service", "CalculoCDB.Service\CalculoCDB.Service.csproj", "{005AD128-022D-4CBD-8788-86C7FD715CE0}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Frontend", "Frontend", "{4BE9D1E9-D264-4641-80E6-5045F08A6214}"
+EndProject
+Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "CalculoCDB.AppWeb", "CalculoCDB.AppWeb\CalculoCDB.AppWeb.esproj", "{3A206006-DB67-4C03-8BC7-FF8F71F1A3AE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7CD52AE8-7E5B-46E0-B740-F698B9DD42C5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7CD52AE8-7E5B-46E0-B740-F698B9DD42C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7CD52AE8-7E5B-46E0-B740-F698B9DD42C5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7CD52AE8-7E5B-46E0-B740-F698B9DD42C5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4BD57E10-E08E-4871-94D4-84E15531C641}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4BD57E10-E08E-4871-94D4-84E15531C641}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4BD57E10-E08E-4871-94D4-84E15531C641}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4BD57E10-E08E-4871-94D4-84E15531C641}.Release|Any CPU.Build.0 = Release|Any CPU
+		{005AD128-022D-4CBD-8788-86C7FD715CE0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{005AD128-022D-4CBD-8788-86C7FD715CE0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{005AD128-022D-4CBD-8788-86C7FD715CE0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{005AD128-022D-4CBD-8788-86C7FD715CE0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3A206006-DB67-4C03-8BC7-FF8F71F1A3AE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3A206006-DB67-4C03-8BC7-FF8F71F1A3AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3A206006-DB67-4C03-8BC7-FF8F71F1A3AE}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{3A206006-DB67-4C03-8BC7-FF8F71F1A3AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3A206006-DB67-4C03-8BC7-FF8F71F1A3AE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3A206006-DB67-4C03-8BC7-FF8F71F1A3AE}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{9FA1099E-05EB-42AB-939A-5DE1445C6899} = {490D53CC-596B-4E55-AF6B-FBF8DD9F8371}
+		{7CD52AE8-7E5B-46E0-B740-F698B9DD42C5} = {9FA1099E-05EB-42AB-939A-5DE1445C6899}
+		{4BD57E10-E08E-4871-94D4-84E15531C641} = {9FA1099E-05EB-42AB-939A-5DE1445C6899}
+		{005AD128-022D-4CBD-8788-86C7FD715CE0} = {9FA1099E-05EB-42AB-939A-5DE1445C6899}
+		{3A206006-DB67-4C03-8BC7-FF8F71F1A3AE} = {4BE9D1E9-D264-4641-80E6-5045F08A6214}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A0C50DB3-AF38-4FF2-AEC6-090AB2238C72}
+	EndGlobalSection
+EndGlobal

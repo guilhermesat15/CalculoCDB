@@ -1,0 +1,30 @@
+<div class="login-wrapper">
+  <div class="card">
+    <div class="card-body">
+      <form class="form-signin" (ngSubmit)="onSubmit(signInForm)" #signInForm="ngForm">
+        <h1 class="h4 mb-3 font-weight-normal">Calcular CDB</h1>
+
+        <label for="inputQuantidadeMeses" class="sr-only">Quantidade Meses </label>
+        <input type="number" id="inputQuantidadeMeses" class="form-control" name="quantidadeMeses" ngModel required autofocus>
+
+        <label for="inputValorInicial" class="sr-only">Valor Inicial</label>
+        <input type="number" id="inputValorInicial" class="form-control" name="valorInicial" autocomplete="on" ngModel required>
+
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Calcular</button>
+
+        <div class="alert alert-danger" role="alert" *ngIf="isFormValid">
+          Favor preencher os campos.
+        </div>
+        <div class="alert alert-danger" role="alert" *ngIf="areCredentialsInvalid">
+          Valores inválidos.
+        </div>
+
+        <h1 class="h4 mb-3 font-weight-normal">Resultado Cálculo CDB</h1>
+
+        <p id="LabelResultadoBruto" class="mt-4" aria-live="polite">Valor Bruto: <strong>{{ resultadoBruto | currency:'BRL':'symbol':'1.2-2' }}</strong></p>
+        <p id="LabelResultadoliquido" class="mt-4" aria-live="polite">Valor Líquido: <strong>{{ resultadoLiquido | currency:'BRL':'symbol':'1.2-2' }}</strong></p>
+
+      </form>
+    </div>
+  </div>
+</div>
