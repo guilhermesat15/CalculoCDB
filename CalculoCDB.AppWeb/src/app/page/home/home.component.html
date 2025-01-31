@@ -1,29 +1,29 @@
 <div class="login-wrapper">
   <div class="card">
-    <div class="card-body">
-      <form class="form-signin" (ngSubmit)="onSubmit(signInForm)" #signInForm="ngForm">
+    <div class="card-body">      
+      <form class="form-signin" [formGroup]="calculoForm" (ngSubmit)="submitForm()">
+
         <h1 class="h4 mb-3 font-weight-normal">Calcular CDB</h1>
 
-        <label for="inputQuantidadeMeses" class="sr-only">Quantidade Meses </label>
-        <input type="number" id="inputQuantidadeMeses" class="form-control" name="quantidadeMeses" ngModel required autofocus>
+        <div class="form-group">
+          <label for="quantidadeMeses">Quantidade Meses</label>
+          <input type="number" class="form-control" id="quantidadeMeses" formControlName="quantidadeMeses" placeholder="Digite o prazo em meses" min="2" autofocus>
+        </div>
 
-        <label for="inputValorInicial" class="sr-only">Valor Inicial</label>
-        <input type="number" id="inputValorInicial" class="form-control" name="valorInicial" autocomplete="on" ngModel required>
+        <div class="form-group">
+          <label for="valorInicial">Valor Inicial</label>
+          <input type="text" class="form-control" id="valorInicial" formControlName="valorInicial" placeholder="Digite um valor monetário positivo">
+        </div>
 
-        <button class="btn btn-lg btn-primary btn-block" type="submit">Calcular</button>
+        <button type="submit" class="btn btn-primary">Calcular</button>
 
         <div class="alert alert-danger" role="alert" *ngIf="isFormValid">
           Favor preencher os campos.
         </div>
-        <div class="alert alert-danger" role="alert" *ngIf="areCredentialsInvalid">
-          Valores inválidos.
-        </div>
 
         <h1 class="h4 mb-3 font-weight-normal">Resultado Cálculo CDB</h1>
-
-        <p id="LabelResultadoBruto" class="mt-4" aria-live="polite">Valor Bruto: <strong>{{ resultadoBruto | currency:'BRL':'symbol':'1.2-2' }}</strong></p>
-        <p id="LabelResultadoliquido" class="mt-4" aria-live="polite">Valor Líquido: <strong>{{ resultadoLiquido | currency:'BRL':'symbol':'1.2-2' }}</strong></p>
-
+        <p id="LabelResultadoBruto" class="mt-4" aria-live="polite">Valor Bruto: <strong>{{ resultadoBruto }}</strong></p>
+        <p id="LabelResultadoliquido" class="mt-4" aria-live="polite">Valor Líquido: <strong>{{ resultadoLiquido }}</strong></p>
       </form>
     </div>
   </div>

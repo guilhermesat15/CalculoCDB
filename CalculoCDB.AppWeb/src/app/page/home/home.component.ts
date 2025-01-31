@@ -1,9 +1,8 @@
-import { ChangeDetectorRef, Component, Inject, OnInit } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, Validators } from '@angular/forms';
 import { CalculadorCDB } from '../../model/calculadorCDB';
 import { CalculadorCDBService } from '../../service/calculador-cdb.service';
-import { ResultadoCalculadorCDB } from '../../model/resultadoCalculoCDB';
-import { Observable } from 'rxjs';
+
 
 
 @Component({
@@ -17,42 +16,50 @@ export class HomeComponent implements OnInit {
 
   public resultadoBruto: number | undefined = 0.0;
   public resultadoLiquido: number | undefined = 0.0;
+  public valorInicial: string | undefined;
+  public quantidadeMeses: number | undefined;
+  public calculoForm: any;
   isFormValid = false;
   areCredentialsInvalid = false;
-  resultadoCalculoCDB: ResultadoCalculadorCDB | undefined;
+  public calculadorCDB: CalculadorCDB | undefined;
 
-  constructor(private calculadorCDBService: CalculadorCDBService) { }
+  constructor(private formBuilder: FormBuilder, private calculadorCDBService: CalculadorCDBService) { }
 
-  ngOnInit() {
+  ngOnInit(): void {
+    this.calculoForm = this.formBuilder.group({
+      quantidadeMeses: ['', [Validators.required, Validators.min(2), Validators.max(999999999), Validators.pattern("^[0-9]*$")]],
+      valorInicial: ['', [Validators.required, Validators.min(1), Validators.max(999999999)]]
+    });
   }
 
-  onSubmit(calculadorForm: NgForm) {
-    if (!calculadorForm.valid) {
-      this.isFormValid = true;
-      this.areCredentialsInvalid = false;
-      return;
+  submitForm(): void {
+    if (this.calculoForm?.valid) {      
+
+      this.calcularCDB(new CalculadorCDB(parseInt(this.calculoForm.value["quantidadeMeses"]), this.convertValorMonetario(this.calculoForm.value["valorInicial"])));
+      this.isFormValid = false;
     }
     else {
-      this.isFormValid = false;
-      this.areCredentialsInvalid = false;
+      this.isFormValid = true;
     }
 
-    this.calcularCDB(calculadorForm);
+  }
+    
+  private calcularCDB(formData: CalculadorCDB) {
+     
+    this.calculadorCDBService.calcularCDB(formData).subscribe(
+      data => {
+        this.resultadoBruto = (data as any).resultadoBruto.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+        this.resultadoLiquido = (data as any).resultadoLiquido.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+      });
   }
 
-  
-  private calcularCDB(calculadorForm: NgForm) {
-
-    const calculadorCDB = new CalculadorCDB(calculadorForm.value.quantidadeMeses, calculadorForm.value.valorInicial);
-
-    var tmp = this.calculadorCDBService.calcularCDB(calculadorCDB).subscribe(
-      data => {
-        this.resultadoBruto = (data as any).resultadoBruto;
-        this.resultadoLiquido = (data as any).resultadoLiquido;
-      },
-      err => {
-
-      });
+  private convertValorMonetario(valorInicial:string) : number{
+    var valorSplit = valorInicial.split(',');
+    var valorSplit00 = valorSplit?.at(0)?.replace(".", "");
+    var valorSplit01 = valorSplit?.at(1);
+    var valorInicialCalculo = valorSplit00 + "." + valorSplit01;
+    let valorInicialCalculoConvert: number = parseFloat(valorInicialCalculo);
+    return valorInicialCalculoConvert;
   }
  
 }

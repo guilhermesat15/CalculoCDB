@@ -10,6 +10,9 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CalculoCDB.API", "CalculoCDB.API\CalculoCDB.API.csproj", "{7CD52AE8-7E5B-46E0-B740-F698B9DD42C5}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CalculoCDB.Test", "CalculoCDB.Test\CalculoCDB.Test.csproj", "{4BD57E10-E08E-4871-94D4-84E15531C641}"
+	ProjectSection(ProjectDependencies) = postProject
+		{005AD128-022D-4CBD-8788-86C7FD715CE0} = {005AD128-022D-4CBD-8788-86C7FD715CE0}
+	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CalculoCDB.Service", "CalculoCDB.Service\CalculoCDB.Service.csproj", "{005AD128-022D-4CBD-8788-86C7FD715CE0}"
 EndProject
