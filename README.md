@@ -2,7 +2,7 @@
 
 Tecnologias e frameworks usados na solução:
 
-ASP.NET Core and C# para p BackEnd versão net8 <br />
+ASP.NET Core and C# para p BackEnd versão net 8.0.101 <br />
 Angular and TypeScript para o FrontEnd, [Angular CLI](https://github.com/angular/angular-cli) versão 19.1.4 <br />
 Bootstrap para layout das telas versão 5.3.3 <br />
 
@@ -24,13 +24,20 @@ Bootstrap para layout das telas versão 5.3.3 <br />
 Aplicação web poderá ser acessada em (http://localhost:4200/)<br />
 Aplicação api poderá ser acessada em (http://localhost:8080/swagger/index.html)<br />
 
-ou 
+OU 
 
-2. Navegue até o diretório CalculoCDB.AppWeb <br />  
+2. Navegue até o diretório CalculoCDB.AppWeb <br />
+- Execute no <b>prompt de comando</b> <br />
 <b>cd CalculoCDB.AppWeb </b> <br />
+<b>npm start </b>  <br /><br />
+Aplicação web poderá ser acessada em (http://localhost:4200/)<br /><br />
 
-execute <br />
-<b> dotnet run </b>  <br />
+
+  Navegue até o outro diretório CalculoCDB.API <br />  
+- Execute no <b>prompt de comando</b> <br />
+<b>cd CalculoCDB.API </b> <br />
+<b>dotnet run </b> <br /><br />
+Aplicação api poderá ser acessada em (http://localhost:8080/swagger/index.html)<br />
 
 
 ## Executando testes unitário e relatórios de cobertura da camada lógica. 
